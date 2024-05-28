@@ -76,6 +76,8 @@ struct CounterFeature {
         case incrementButtonTapped
     }
 
+    enum CancelID { case factRequest }
+
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
@@ -92,6 +94,7 @@ struct CounterFeature {
                         let fact = String(decoding: data, as: UTF8.self)
                         await send(.factResponse(fact))
                     }
+                    .cancellable(id: CancelID.factRequest, cancelInFlight: true)
                 case .factResponse(let fact):
                     state.fact = fact
                     state.isLoading = false
