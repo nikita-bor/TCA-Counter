@@ -14,6 +14,7 @@
 		146EF5C22C05DE0F006C08FB /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 146EF5C12C05DE0F006C08FB /* ComposableArchitecture */; };
 		146EF5C42C05DEC8006C08FB /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EF5C32C05DEC8006C08FB /* CounterFeature.swift */; };
 		147B81B02C060BF40015EF9B /* CounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B81AF2C060BF40015EF9B /* CounterTests.swift */; };
+		147B81B72C0610A20015EF9B /* NumberFactClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B81B62C0610A20015EF9B /* NumberFactClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		147B81A62C0606BC0015EF9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		147B81AD2C060BF40015EF9B /* TCA-CounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TCA-CounterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		147B81AF2C060BF40015EF9B /* CounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTests.swift; sourceTree = "<group>"; };
+		147B81B62C0610A20015EF9B /* NumberFactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				146EF5B62C05DD69006C08FB /* Assets.xcassets */,
 				146EF5B82C05DD69006C08FB /* Preview Content */,
 				146EF5C32C05DEC8006C08FB /* CounterFeature.swift */,
+				147B81B62C0610A20015EF9B /* NumberFactClient.swift */,
 			);
 			path = "TCA-Counter";
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				146EF5C42C05DEC8006C08FB /* CounterFeature.swift in Sources */,
 				146EF5B52C05DD68006C08FB /* ContentView.swift in Sources */,
 				146EF5B32C05DD68006C08FB /* TCA_CounterApp.swift in Sources */,
+				147B81B72C0610A20015EF9B /* NumberFactClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
