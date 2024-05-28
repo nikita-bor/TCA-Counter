@@ -22,6 +22,7 @@
 		146EF5B62C05DD69006C08FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		146EF5B92C05DD69006C08FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		146EF5C32C05DEC8006C08FB /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
+		147B81A62C0606BC0015EF9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 		146EF5B12C05DD68006C08FB /* TCA-Counter */ = {
 			isa = PBXGroup;
 			children = (
+				147B81A62C0606BC0015EF9B /* Info.plist */,
 				146EF5B22C05DD68006C08FB /* TCA_CounterApp.swift */,
 				146EF5B42C05DD68006C08FB /* ContentView.swift */,
 				146EF5B62C05DD69006C08FB /* Assets.xcassets */,
@@ -289,6 +291,7 @@
 				DEVELOPMENT_TEAM = 5393MUFBLF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TCA-Counter/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -319,6 +322,7 @@
 				DEVELOPMENT_TEAM = 5393MUFBLF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TCA-Counter/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
