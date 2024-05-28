@@ -16,11 +16,11 @@ final class CounterTests: XCTestCase {
             $0.numberFact.fetch = { "\($0) is a good number" }
         }
 
-        await store.send(.incrementButtonTapped) {
+        await store.send(.view(.incrementButtonTapped)) {
             $0.count = 1
         }
 
-        await store.send(.factButtonTapped) {
+        await store.send(.view(.factButtonTapped)) {
             $0.isLoading = true
         }
 

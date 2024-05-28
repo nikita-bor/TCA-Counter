@@ -6,6 +6,7 @@ import Foundation
 import ComposableArchitecture
 import SwiftUI
 
+@ViewAction(for: CounterFeature.self)
 struct CounterView: View {
 
     let store: StoreOf<CounterFeature>
@@ -19,21 +20,21 @@ struct CounterView: View {
                     .clipShape(.rect(cornerRadius: 10))
                 HStack {
                     Button("-") {
-                        store.send(.decrementButtonTapped)
+                        send(.decrementButtonTapped)
                     }
                     .padding()
                     .background(.black.opacity(0.1))
                     .clipShape(.rect(cornerRadius: 10))
 
                     Button("+") {
-                        store.send(.incrementButtonTapped)
+                        send(.incrementButtonTapped)
                     }
                     .padding()
                     .background(.black.opacity(0.1))
                     .clipShape(.rect(cornerRadius: 10))
                 }
                 Button("Fact") {
-                    store.send(.factButtonTapped)
+                    send(.factButtonTapped)
                 }
                 .padding()
                 .background(.black.opacity(0.1))
@@ -69,11 +70,15 @@ struct CounterFeature {
         var isLoading = false
     }
 
-    enum Action {
-        case decrementButtonTapped
-        case factButtonTapped
+    enum Action: ViewAction {
         case factResponse(String)
-        case incrementButtonTapped
+        case view(View)
+
+        enum View {
+            case decrementButtonTapped
+            case factButtonTapped
+            case incrementButtonTapped
+        }
     }
 
     enum CancelID { case factRequest }
@@ -83,11 +88,11 @@ struct CounterFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-                case .decrementButtonTapped:
+                case .view(.decrementButtonTapped):
                     state.count -= 1
                     state.fact = nil
                     return .none
-                case .factButtonTapped:
+                case .view(.factButtonTapped):
                     state.fact = nil
                     state.isLoading = true
                     return .run { [count = state.count] send in
@@ -98,7 +103,7 @@ struct CounterFeature {
                     state.fact = fact
                     state.isLoading = false
                     return .none
-                case .incrementButtonTapped:
+                case .view(.incrementButtonTapped):
                     state.count += 1
                     state.fact = nil
                     return .none
