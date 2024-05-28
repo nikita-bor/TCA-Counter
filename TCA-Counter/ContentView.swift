@@ -2,17 +2,16 @@
 //  Created by Nikita Borodulin on 28.05.2024.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        CounterView(
+            store: Store(initialState: CounterFeature.State()) {
+                CounterFeature()
+            }
+        )
     }
 }
 
