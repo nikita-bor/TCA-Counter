@@ -13,7 +13,18 @@
 		146EF5BA2C05DD69006C08FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 146EF5B92C05DD69006C08FB /* Preview Assets.xcassets */; };
 		146EF5C22C05DE0F006C08FB /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 146EF5C12C05DE0F006C08FB /* ComposableArchitecture */; };
 		146EF5C42C05DEC8006C08FB /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146EF5C32C05DEC8006C08FB /* CounterFeature.swift */; };
+		147B81B02C060BF40015EF9B /* CounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B81AF2C060BF40015EF9B /* CounterTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		147B81B12C060BF50015EF9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146EF5A72C05DD68006C08FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 146EF5AE2C05DD68006C08FB;
+			remoteInfo = "TCA-Counter";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		146EF5AF2C05DD68006C08FB /* TCA-Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TCA-Counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,6 +34,8 @@
 		146EF5B92C05DD69006C08FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		146EF5C32C05DEC8006C08FB /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 		147B81A62C0606BC0015EF9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		147B81AD2C060BF40015EF9B /* TCA-CounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TCA-CounterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		147B81AF2C060BF40015EF9B /* CounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +47,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		147B81AA2C060BF40015EF9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -41,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				146EF5B12C05DD68006C08FB /* TCA-Counter */,
+				147B81AE2C060BF40015EF9B /* TCA-CounterTests */,
 				146EF5B02C05DD68006C08FB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				146EF5AF2C05DD68006C08FB /* TCA-Counter.app */,
+				147B81AD2C060BF40015EF9B /* TCA-CounterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,6 +96,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		147B81AE2C060BF40015EF9B /* TCA-CounterTests */ = {
+			isa = PBXGroup;
+			children = (
+				147B81AF2C060BF40015EF9B /* CounterTests.swift */,
+			);
+			path = "TCA-CounterTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -97,6 +127,24 @@
 			productReference = 146EF5AF2C05DD68006C08FB /* TCA-Counter.app */;
 			productType = "com.apple.product-type.application";
 		};
+		147B81AC2C060BF40015EF9B /* TCA-CounterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 147B81B32C060BF50015EF9B /* Build configuration list for PBXNativeTarget "TCA-CounterTests" */;
+			buildPhases = (
+				147B81A92C060BF40015EF9B /* Sources */,
+				147B81AA2C060BF40015EF9B /* Frameworks */,
+				147B81AB2C060BF40015EF9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				147B81B22C060BF50015EF9B /* PBXTargetDependency */,
+			);
+			name = "TCA-CounterTests";
+			productName = "TCA-CounterTests";
+			productReference = 147B81AD2C060BF40015EF9B /* TCA-CounterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -109,6 +157,10 @@
 				TargetAttributes = {
 					146EF5AE2C05DD68006C08FB = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					147B81AC2C060BF40015EF9B = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 146EF5AE2C05DD68006C08FB;
 					};
 				};
 			};
@@ -129,6 +181,7 @@
 			projectRoot = "";
 			targets = (
 				146EF5AE2C05DD68006C08FB /* TCA-Counter */,
+				147B81AC2C060BF40015EF9B /* TCA-CounterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -140,6 +193,13 @@
 			files = (
 				146EF5BA2C05DD69006C08FB /* Preview Assets.xcassets in Resources */,
 				146EF5B72C05DD69006C08FB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		147B81AB2C060BF40015EF9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +216,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		147B81A92C060BF40015EF9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				147B81B02C060BF40015EF9B /* CounterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		147B81B22C060BF50015EF9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 146EF5AE2C05DD68006C08FB /* TCA-Counter */;
+			targetProxy = 147B81B12C060BF50015EF9B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		146EF5BB2C05DD69006C08FB /* Debug */ = {
@@ -342,6 +418,42 @@
 			};
 			name = Release;
 		};
+		147B81B42C060BF50015EF9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5393MUFBLF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitaborodulin.TCA-CounterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCA-Counter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCA-Counter";
+			};
+			name = Debug;
+		};
+		147B81B52C060BF50015EF9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5393MUFBLF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nikitaborodulin.TCA-CounterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCA-Counter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCA-Counter";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -359,6 +471,15 @@
 			buildConfigurations = (
 				146EF5BE2C05DD69006C08FB /* Debug */,
 				146EF5BF2C05DD69006C08FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		147B81B32C060BF50015EF9B /* Build configuration list for PBXNativeTarget "TCA-CounterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				147B81B42C060BF50015EF9B /* Debug */,
+				147B81B52C060BF50015EF9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
