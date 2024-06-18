@@ -73,6 +73,7 @@ struct CounterFeature {
     enum Action: ViewAction {
         case delegate(Delegate)
         case factResponse(String)
+        case reset
         case view(View)
 
         enum Delegate {
@@ -110,6 +111,11 @@ struct CounterFeature {
                     state.fact = fact
                     state.isLoading = false
                     return .none
+                case .reset:
+                    state.fact = nil
+                    state.count = 0
+                    state.isLoading = false
+                    return .cancel(id: CancelID.factRequest)
                 case .view(.incrementButtonTapped):
                     state.count += 1
                     state.fact = nil

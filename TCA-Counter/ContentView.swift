@@ -3,8 +3,11 @@
 //
 
 import ComposableArchitecture
+import Foundation
 import SwiftUI
+import UIKit
 
+@ViewAction(for: CountersFeature.self)
 struct ContentView: View {
 
     let store: StoreOf<CountersFeature>
@@ -28,6 +31,9 @@ struct ContentView: View {
                     }
             }
             .padding()
+            .task {
+                await send(.task).finish()
+            }
         }
     }
 
@@ -67,10 +73,18 @@ struct CountersFeature {
         var lastChangedCounter: Counter?
     }
 
-    enum Action {
+    enum Action: ViewAction {
         case counter1(CounterFeature.Action)
         case counter2(CounterFeature.Action)
+        case userDidTakeScreenshot
+        case view(ViewAction)
+
+        enum ViewAction {
+            case task
+        }
     }
+
+    @Dependency(\.screenshots) var screenshots
 
     var body: some ReducerOf<Self> {
         Scope(state: \.counter1, action: \.counter1) {
@@ -91,7 +105,38 @@ struct CountersFeature {
                     return .none
                 case .counter2:
                     return .none
+                case .userDidTakeScreenshot:
+                    state.lastChangedCounter = nil
+                    return .merge(
+                        CounterFeature().reduce(into: &state.counter1, action: .reset)
+                            .map(Action.counter1),
+                        CounterFeature().reduce(into: &state.counter2, action: .reset)
+                            .map(Action.counter2)
+                    )
+                case .view(.task):
+                    return .run { send in
+                        for await _ in await screenshots() {
+                            await send(.userDidTakeScreenshot)
+                        }
+                    }
             }
         }
+    }
+}
+
+extension DependencyValues {
+    var screenshots: @Sendable () async -> AsyncStream<Void> {
+        get { self[ScreenshotsKey.self] }
+        set { self[ScreenshotsKey.self] = newValue }
+    }
+}
+
+private enum ScreenshotsKey: DependencyKey {
+    static let liveValue: @Sendable () async -> AsyncStream<Void> = {
+        await AsyncStream(
+            NotificationCenter.default
+                .notifications(named: UIApplication.userDidTakeScreenshotNotification)
+                .map { _ in }
+        )
     }
 }
