@@ -17,6 +17,7 @@ struct TCA_CounterApp: App {
                     )
                 ) {
                     CountersFeature()
+                        ._printChanges()
                 }
             )
         }
