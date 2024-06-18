@@ -71,8 +71,13 @@ struct CounterFeature {
     }
 
     enum Action: ViewAction {
+        case delegate(Delegate)
         case factResponse(String)
         case view(View)
+
+        enum Delegate {
+            case valueChanged
+        }
 
         enum View {
             case decrementButtonTapped
@@ -88,10 +93,12 @@ struct CounterFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
+                case .delegate:
+                    return .none
                 case .view(.decrementButtonTapped):
                     state.count -= 1
                     state.fact = nil
-                    return .none
+                    return .send(.delegate(.valueChanged))
                 case .view(.factButtonTapped):
                     state.fact = nil
                     state.isLoading = true
@@ -106,7 +113,7 @@ struct CounterFeature {
                 case .view(.incrementButtonTapped):
                     state.count += 1
                     state.fact = nil
-                    return .none
+                    return .send(.delegate(.valueChanged))
             }
         }
     }
