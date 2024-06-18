@@ -73,4 +73,36 @@ final class CounterTests: XCTestCase {
             $0.lastChangedCounter = .second
         }
     }
+
+    @MainActor
+    func test_userDidTakeScreenshot() async {
+
+        let (screenshots, takeScreenshot) = AsyncStream.makeStream(of: Void.self)
+
+        let store = TestStore(initialState: CountersFeature.State(counter1: CounterFeature.State(), counter2: CounterFeature.State())) {
+            CountersFeature()
+        } withDependencies: {
+            $0.screenshots = { screenshots }
+        }
+
+        let task = await store.send(.view(.task))
+
+        await store.send(.counter1(.view(.incrementButtonTapped))) {
+            $0.counter1.count = 1
+        }
+
+        await store.receive(\.counter1.delegate) {
+            $0.counter1.count = 1
+            $0.lastChangedCounter = .first
+        }
+
+        takeScreenshot.yield()
+
+        await store.receive(\.userDidTakeScreenshot) {
+            $0.counter1.count = 0
+            $0.lastChangedCounter = nil
+        }
+
+        await task.cancel()
+    }
 }
