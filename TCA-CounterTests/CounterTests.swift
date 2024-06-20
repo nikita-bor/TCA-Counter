@@ -20,6 +20,8 @@ final class CounterTests: XCTestCase {
             $0.count = 1
         }
 
+        await store.receive(\.delegate.valueChanged)
+
         await store.send(.view(.factButtonTapped)) {
             $0.isLoading = true
         }
