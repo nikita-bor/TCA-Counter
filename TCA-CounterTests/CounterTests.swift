@@ -54,4 +54,25 @@ final class CounterTests: XCTestCase {
             $0.lastChangedCounter = .second
         }
     }
+
+    @MainActor
+    func testCounters_nonExhaustive() async {
+        let store = TestStore(initialState: CountersFeature.State(counter1: CounterFeature.State(), counter2: CounterFeature.State())) {
+            CountersFeature()
+        }
+
+        store.exhaustivity = .off
+
+        await store.send(.counter1(.view(.incrementButtonTapped)))
+
+        await store.receive(\.counter1.delegate.valueChanged) {
+            $0.lastChangedCounter = .first
+        }
+
+        await store.send(.counter2(.view(.decrementButtonTapped)))
+
+        await store.receive(\.counter2.delegate.valueChanged) {
+            $0.lastChangedCounter = .second
+        }
+    }
 }
