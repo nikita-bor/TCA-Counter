@@ -31,4 +31,27 @@ final class CounterTests: XCTestCase {
             $0.fact = "1 is a good number"
         }
     }
+
+    @MainActor
+    func testCounters() async {
+        let store = TestStore(initialState: CountersFeature.State(counter1: CounterFeature.State(), counter2: CounterFeature.State())) {
+            CountersFeature()
+        }
+
+        await store.send(.counter1(.view(.incrementButtonTapped))) {
+            $0.counter1.count = 1
+        }
+
+        await store.receive(\.counter1.delegate.valueChanged) {
+            $0.lastChangedCounter = .first
+        }
+
+        await store.send(.counter2(.view(.decrementButtonTapped))) {
+            $0.counter2.count = -1
+        }
+
+        await store.receive(\.counter2.delegate.valueChanged) {
+            $0.lastChangedCounter = .second
+        }
+    }
 }

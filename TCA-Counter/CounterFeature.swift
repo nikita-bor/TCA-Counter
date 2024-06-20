@@ -75,6 +75,7 @@ struct CounterFeature {
         case factResponse(String)
         case view(View)
 
+        @CasePathable
         enum Delegate {
             case valueChanged
         }
